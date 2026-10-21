@@ -34,7 +34,7 @@ export default function Auth() {
         <p className="text-slate-500 dark:text-slate-300 text-sm">{signup ? "Create your account to start chatting." : "Log in to continue your chats."}</p>
         {signup && <input className={input} placeholder="Name" value={form.name} onChange={set("name")} required />}
         <input className={input} type="email" placeholder="Email" value={form.email} onChange={set("email")} required />
-        <input className={input} type="password" placeholder="Password (6+ characters)" value={form.password} onChange={set("password")} required />
+        <input className={input} type="password" autoComplete={signup ? "new-password" : "current-password"} placeholder="Password (6+ characters)" value={form.password} onChange={set("password")} required />
         {error && <p className="text-sm text-red-500">{error}</p>}
         <button disabled={busy} className="w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-60 text-white font-medium rounded-lg py-2.5">
           {busy ? "Please wait…" : signup ? "Sign up" : "Log in"}
